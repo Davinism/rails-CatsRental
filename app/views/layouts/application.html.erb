@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CatsRental</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<footer>
+  This is our 99 Cats site. Please feel free to look at our cats!
+
+  <%= yield :footer %>
+</footer>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<% action_url = @cat.persisted? ? cat_url(@cat) : cats_url %>
+
+<form action="<%= cats_url %>" method="POST">
+  <%= auth_token %>
+  <% if @cat.persisted? %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+
+  <label>Name:
+    <input type="text" name="cat[name]" value="<%= @cat.name %>">
+  </label>
+
+  <label>Sex:
+
+    <input type="radio" name="cat[sex]" value="M" checked="<%= @cat.sex == "M" ? "checked" : nil%>">Male
+    <input type="radio" name="cat[sex]" value="F" checked="<%= @cat.sex == "F" ? "checked" : nil%>">Female
+  </label>
+
+  <label>Color:
+    <select name="cat[color]" value="<%=@cat.color%>">
+      <option value="red">Red</option>
+      <option value="pink">Pink</option>
+      <option value="black">Black</option>
+      <option value="white">White</option>
+    </select>
+  </label>
+
+  <label>Birthdate:
+    <input type="date" name="cat[birth_date]" value="<%=@cat.birth_date%>">
+  </label>
+
+  <label>Description:
+    <textarea name="cat[description]"><%=@cat.description%></textarea>
+  </label>
+
+  <% if @cat.persisted? %>
+    <input type="submit" value="Submit Renewed Cat">
+  <% else %>
+    <input type="submit" value="Submit New Cat">
+  <% end %>
+
+
+</form>

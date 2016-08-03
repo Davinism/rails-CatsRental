@@ -1,0 +1,11 @@
+<h2>These are the cats!</h2>
+
+<% @cats.each do |cat| %>
+  <%= link_to "Visit #{cat.name}", cat_url(cat)%>
+<%end%>
+
+<% content_for :footer do %>
+  <p>
+    This is the cats index page.
+  </p>
+<% end %>
